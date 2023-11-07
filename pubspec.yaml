@@ -1,0 +1,45 @@
+name: hyrule_compendium
+description: A new Flutter project.
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.1.5 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  dio: ^5.3.3
+  bloc: ^8.1.2
+  flutter_bloc: ^8.1.3
+  loading_animation_widget: ^1.2.0+4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/images/creatures.png
+    - assets/images/equipment.png
+    - assets/images/materials.png
+    - assets/images/monsters.png
+    - assets/images/treasure.png
+
+  fonts:
+    - family: Philosopher
+      fonts:
+        - asset: assets/fonts/Philosopher-Regular.ttf
+        - asset: assets/fonts/Philosopher-Bold.ttf
+        - asset: assets/fonts/Philosopher-BoldItalic.ttf
+        - asset: assets/fonts/Philosopher-Italic.ttf
+          style: italic
