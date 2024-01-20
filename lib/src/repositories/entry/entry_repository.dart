@@ -3,5 +3,7 @@ import '../../core/fp/either.dart';
 import '../../models/entry_model.dart';
 
 abstract interface class EntryRepository {
-  Future<Either<RepositoryException, List<EntryModel>>> getEntriesByCategory(String category);
+  Future<Either<RepositoryException, List<EntryModel>>> getEntriesByCategory(
+    String category,
+  );
 }

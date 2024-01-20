@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../../models/categories.dart';
 import '../entries/entries_screen.dart';
 
 class CategoryCard extends StatelessWidget {
-  final String category;
+  final Categories category;
 
   const CategoryCard({
     super.key,
@@ -37,13 +38,13 @@ class CategoryCard extends StatelessWidget {
               Container(
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage('assets/images/$category.png'),
+                    image: AssetImage('assets/images/${category.name}.png'),
                     fit: BoxFit.scaleDown,
                   ),
                 ),
               ),
               Text(
-                category.toUpperCase(),
+                category.label.toUpperCase(),
                 style: textTheme.titleSmall,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,

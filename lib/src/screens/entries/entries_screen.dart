@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../core/http/rest_client.dart';
+import '../../models/categories.dart';
 import '../../models/entry_model.dart';
 import '../../repositories/entry/entry_repository_impl.dart';
 import '../components/entry_card.dart';
@@ -10,7 +11,7 @@ import 'entries_controller.dart';
 import 'entries_state.dart';
 
 class EntriesScreen extends StatefulWidget {
-  final String category;
+  final Categories category;
 
   const EntriesScreen({
     super.key,
@@ -26,7 +27,7 @@ class _EntriesScreenState extends State<EntriesScreen> {
 
   @override
   void initState() {
-    controller.getEntriesByCategory(widget.category);
+    controller.getEntriesByCategory(widget.category.name);
     super.initState();
   }
 
@@ -34,7 +35,7 @@ class _EntriesScreenState extends State<EntriesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.category.toUpperCase()),
+        title: Text(widget.category.label.toUpperCase()),
       ),
       body: BlocBuilder<EntriesController, EntriesState>(
         bloc: controller,

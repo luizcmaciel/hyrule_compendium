@@ -1,11 +1,25 @@
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
+
+import 'app_colors.dart';
+import 'app_fonts.dart';
 
 sealed class ThemeConfig {
   static ThemeData defaultTheme = ThemeData(
     useMaterial3: true,
-    colorSchemeSeed: ThemeColors.seedColor,
-    brightness: Brightness.light,
-    fontFamily: ThemeFonts.fontFamily,
+    fontFamily: AppFonts.defaultFontFamily,
+    colorSchemeSeed: AppColors.primaryColor,
+    brightness: Brightness.dark,
+    pageTransitionsTheme: const PageTransitionsTheme(
+      builders: {
+        TargetPlatform.android: SharedAxisPageTransitionsBuilder(
+          transitionType: SharedAxisTransitionType.horizontal,
+        ),
+        TargetPlatform.iOS:SharedAxisPageTransitionsBuilder(
+          transitionType: SharedAxisTransitionType.horizontal,
+        ),
+      },
+    ),
     appBarTheme: const AppBarTheme(
       centerTitle: true,
     ),
@@ -16,12 +30,4 @@ sealed class ThemeConfig {
       ),
     ),
   );
-}
-
-sealed class ThemeColors {
-  static Color seedColor = Colors.blue;
-}
-
-sealed class ThemeFonts {
-  static String fontFamily = 'Philosopher';
 }

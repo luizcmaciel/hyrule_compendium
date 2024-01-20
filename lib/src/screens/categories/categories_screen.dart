@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../models/categories.dart';
 import '../components/category_card.dart';
 
 class CategoriesScreen extends StatefulWidget {
@@ -14,7 +15,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Categories'.toUpperCase()),
+        title: Text('Categorias'.toUpperCase()),
       ),
       body: GridView(
         padding: const EdgeInsets.all(16.0),
@@ -23,18 +24,9 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
           crossAxisSpacing: 16.0,
           mainAxisSpacing: 16.0,
         ),
-        children: Categories.values
-            .map((e) => CategoryCard(category: e.name))
-            .toList(),
+        children:
+            Categories.values.map((e) => CategoryCard(category: e)).toList(),
       ),
     );
   }
-}
-
-enum Categories {
-  creatures,
-  equipment,
-  materials,
-  monsters,
-  treasure,
 }
